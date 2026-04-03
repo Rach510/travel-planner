@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <title>Travel Planner</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="travel">My Travel Planner</div>
+
+    <nav>
+        <ul>
+
+            <li><a href="index1.html" onclick="showAll(); return false;">Home</a></li>
+
+          <li class="dropdown">
+    <a href="#">Hotels ▾</a>
+    <ul class="dropdown-menu">
+        <li><a href="#" onclick="filterBudget('low'); return false;">Budget Hotels</a></li>
+        <li><a href="#" onclick="filterBudget('high'); return false;">Luxury Hotels</a></li>
+    </ul>
+</li>
+
+           
+
+            <!-- ACTIVITIES -->
+            
+            <li><a href="#">About</a></li>
+
+        </ul>
+    </nav>
+
+    <div class="search-box">
+        <input type="text" placeholder="Search...">
+    </div>
+
+  <div class="actions">
+    <button class="mode" onclick="toggleMode()">🌙</button>
+
+  <span id="userMessage"></span>
+
+   <a href="signin.html" class="signup" id="signupBtn">Sign Up</a>
+</div>
+
+</header>
+
+
+<main>
+
+    <!-- FILTERS -->
+    <section class="filters">
+        <button onclick="showAll()">All</button>
+
+        <button onclick="filterLocation('local')">Local</button>
+        <button onclick="filterLocation('international')">International</button>
+
+        <button onclick="filterDest('adventure')">Adventure</button>
+        <button onclick="filterDest('leisure')">Leisure</button>
+        <button onclick="filterDest('cultural')">Cultural</button>
+
+        <button onclick="filterBudget('low')">Low</button>
+        <button onclick="filterBudget('medium')">Medium</button>
+        <button onclick="filterBudget('high')">High</button>
+    </section>
+
+   
+    <section class="cards-container">
+
+        <!-- MANALI -->
+        <div class="card" data-type="adventure" data-budget="high" data-location="local"
+             onclick="openModal('Manali','Snowy mountains & adventure sports','https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1000')">
+
+            <img src="https://images.unsplash.com/photo-1597167231350-d057a45dc868?q=80&w=1382&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            <h3>Manali</h3>
+            <p>Snowy mountains & adventure sports</p>
+
+            <div class="tags">
+                <span>📍 India</span>
+                <span>💰 High</span>
+            </div>
+
+           
+            <button onclick="event.stopPropagation(); generateItinerary('Manali')">
+              ✨ Plan My Trip
+            </button>
+
+            <button onclick="event.stopPropagation(); addToTrip('Manali')">
+              Add to Trip
+            </button>
+            </button>
+        </div>
+
+
+
+
+
+
+
+        <!-- GOA -->
+        <div class="card" data-type="leisure" data-budget="medium" data-location="local"
+             onclick="openModal('Goa','Beaches & nightlife','https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000')">
+
+            <img src="https://images.unsplash.com/photo-1607577070449-531c2296916c?q=80&w=1025&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            <h3>Goa</h3>
+            <p>Beaches and nightlife</p>
+
+            <div class="tags">
+                <span>📍 India</span>
+                <span>💰 Medium</span>
+            </div>
+            <button onclick="event.stopPropagation(); generateItinerary('Goa')"> ✨ Plan My Trip
+            </button>
+            <button onclick="event.stopPropagation(); addToTrip('Goa')">Add to Trip</button>
+        </div>
+
+
+
+        <!-- HAMPI -->
+        <div class="card" data-type="cultural" data-budget="low" data-location="local"
+             onclick="openModal('Hampi','Historic temples & ruins','https://images.unsplash.com/photo-1597074866923-dc0589150358?q=80&w=1000')">
+
+            <img src="https://images.unsplash.com/photo-1616606484004-5ef3cc46e39d?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+            <h3>Hampi</h3>
+            <p>Historic ruins & heritage</p>
+
+            <div class="tags">
+                <span>📍 India</span>
+                <span>💰 Low</span>
+            </div>
+
+           
+            <button onclick="event.stopPropagation(); generateItinerary('Hampi')"> ✨ Plan My Trip
+                 <button onclick="event.stopPropagation(); addToTrip('Hampi')">Add to Trip</button>
+            </button>
+        </div>
+
+
+
+
+        <!-- kerala -->
+        <div class="card" data-type="leisure" data-budget="medium" data-location="local"
+        onclick="openModal('Kerala','Backwaters & nature','https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=1000')">
+
+        <img src="https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?q=80&w=800">
+        <h3>Kerala</h3>
+        <p>Backwaters & greenery</p>
+
+        <div class="tags">
+            <span>📍 India</span>
+            <span>💰 Medium</span>
+        </div>
+
+        <button onclick="event.stopPropagation(); generateItinerary('Kerala')">✨ Plan My Trip</button>
+        <button onclick="event.stopPropagation(); addToTrip('Kerala')">Add to Trip</button>
+        </div>
+
+
+
+
+        <!--ladakh -->
+        <div class="card" data-type="adventure" data-budget="high" data-location="local"
+        onclick="openModal('Ladakh','Mountains & bike trips','https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=1000')">
+
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?q=80&w=800">
+        <h3>Ladakh</h3>
+        <p>Mountains & road trips</p>
+
+        <div class="tags">
+            <span>📍 India</span>
+            <span>💰 High</span>
+        </div>
+
+        <button onclick="event.stopPropagation(); generateItinerary('Ladakh')">✨ Plan My Trip</button>
+        <button onclick="event.stopPropagation(); addToTrip('Ladakh')">Add to Trip</button>
+        </div>
+
+
+
+
+         <!--megh -->
+               <div class="card" data-type="adventure" data-budget="medium" data-location="local"
+        onclick="openModal('Meghalaya','Waterfalls & living root bridges','https://images.unsplash.com/photo-1622308644420-b20142dc993c?q=80&w=1000')">
+
+        <img src="https://images.unsplash.com/photo-1622308644420-b20142dc993c?q=80&w=1000">
+        <h3>Meghalaya</h3>
+        <p>Waterfalls & living root bridges</p>
+
+        <div class="tags">
+            <span>📍 India (North East)</span>
+            <span>💰 Medium</span>
+        </div>
+
+        <button onclick="event.stopPropagation(); generateItinerary('Meghalaya')">✨ Plan My Trip</button>
+        <button onclick="event.stopPropagation(); addToTrip('Meghalaya')">Add to Trip</button>
+        </div>
+
+
+
+
+
+
+        <!--bali -->
+
+            <div class="card" data-type="leisure" data-budget="medium" data-location="international"
+            onclick="openModal('Bali','Beaches & relaxation','https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=1000')">
+
+            <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=800">
+            <h3>Bali</h3>
+            <p>Beaches & peaceful vibes</p>
+
+            <div class="tags">
+                <span>🌍 International</span>
+                <span>💰 Medium</span>
+            </div>
+
+            <button onclick="event.stopPropagation(); generateItinerary('Bali')">✨ Plan My Trip</button>
+            <button onclick="event.stopPropagation(); addToTrip('Bali')">Add to Trip</button>
+            </div>
+
+
+
+
+
+
+        <!--rome --> 
+        <div class="card" data-type="cultural" data-budget="medium" data-location="international"
+        onclick="openModal('Rome','Ancient history & architecture','https://images.unsplash.com/photo-1529260830199-42c24126f198?q=80&w=1000')">
+
+        <img src="https://images.unsplash.com/photo-1529260830199-42c24126f198?q=80&w=800">
+        <h3>Rome</h3>
+        <p>Historic city & monuments</p>
+
+        <div class="tags">
+            <span>🌍 International</span>
+            <span>💰 Medium</span>
+        </div>
+
+        <button onclick="event.stopPropagation(); generateItinerary('Rome')">✨ Plan My Trip</button>
+        <button onclick="event.stopPropagation(); addToTrip('Rome')">Add to Trip</button>
+        </div>
+
+
+
+
+         <!--tokyo --> 
+        <div class="card" data-type="cultural" data-budget="high" data-location="international"
+        onclick="openModal('Tokyo','Modern city & culture','https://images.unsplash.com/photo-1549692520-acc6669e2f0c?q=80&w=1000')">
+
+        <img src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c?q=80&w=800">
+        <h3>Tokyo</h3>
+        <p>Modern city & rich culture</p>
+
+        <div class="tags">
+            <span>🌍 International</span>
+            <span>💰 High</span>
+        </div>
+
+        <button onclick="event.stopPropagation(); generateItinerary('Tokyo')">✨ Plan My Trip</button>
+        <button onclick="event.stopPropagation(); addToTrip('Tokyo')">Add to Trip</button>
+        </div>
+
+
+
+
+
+        <!-- PARIS -->
+        <div class="card" data-type="cultural" data-budget="high" data-location="international"
+             onclick="openModal('Paris','Eiffel Tower & city life','https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=1000')">
+
+            <img src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?q=80&w=800">
+            <h3>Paris</h3>
+            <p>Romantic city & landmarks</p>
+
+            <div class="tags">
+                <span>🌍 International</span>
+                <span>💰 High</span>
+            </div>
+
+            <button onclick="event.stopPropagation(); generateItinerary('Paris')">
+                ✨ Plan My Trip
+            </button>
+            <button onclick="event.stopPropagation(); addToTrip('Paris')">Add to Trip</button>
+        </div>
+
+
+
+
+
+
+
+        <!-- Zostel -->
+<div class="card"
+     data-category="hotel"
+     data-budget="low">
+    <img src="https://images.unsplash.com/photo-1559599238-308793637427?q=80&w=800">
+    <h3>Zostel</h3>
+    <p>Popular budget hostel across India</p>
+</div>
+
+<!-- Backpacker Panda -->
+<div class="card"
+     data-category="hotel"
+     data-budget="low">
+    <img src="https://images.unsplash.com/photo-1501117716987-c8e1ecb21016?q=80&w=800">
+    <h3>Backpacker Panda</h3>
+    <p>Affordable & social stay</p>
+</div>
+
+<!-- GoStops -->
+<div class="card"
+     data-category="hotel"
+     data-budget="low">
+    <img src="https://images.unsplash.com/photo-1590490360182-c33d57733427?q=80&w=800">
+    <h3>GoStops</h3>
+    <p>Budget friendly youth hostels</p>
+</div>
+
+<!-- Hosteller -->
+<div class="card"
+     data-category="hotel"
+     data-budget="low">    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?q=80&w=800">
+    <h3>The Hosteller</h3>
+    <p>Comfortable low-cost stays</p>
+</div>
+
+<!-- Treebo -->
+<div class="card"
+     data-category="hotel"
+     data-budget="low">
+    <img src="https://images.unsplash.com/photo-1582719508461-905c673771fd?q=80&w=800">
+    <h3>Treebo Hotels</h3>
+    <p>Affordable hotel chain</p>
+</div>
+
+
+
+
+
+<!-- Taj -->
+<div class="card"
+     data-category="hotel"
+     data-budget="high">
+    <img src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?q=80&w=800">
+    <h3>Taj Hotels</h3>
+    <p>Luxury heritage & premium stay</p>
+</div>
+
+<!-- Oberoi -->
+<div class="card"
+     data-category="hotel"
+     data-budget="high">
+    <img src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?q=80&w=800">
+    <h3>Oberoi Hotels</h3>
+    <p>Top-tier luxury experience</p>
+</div>
+
+<!-- Leela -->
+<div class="card"
+     data-category="hotel"
+     data-budget="high">    <img src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?q=80&w=800">
+    <h3>The Leela</h3>
+    <p>Elegant luxury resorts</p>
+</div>
+
+<!-- ITC -->
+<div class="card"
+     data-category="hotel"
+     data-budget="high">
+    <img src="https://images.unsplash.com/photo-1590490359683-658d3d23f972?q=80&w=800">
+    <h3>ITC Hotels</h3>
+    <p>Sustainable luxury stays</p>
+</div>
+
+<!-- Marriott -->
+<div class="card"
+     data-category="hotel"
+     data-budget="high">
+    <img src="https://images.unsplash.com/photo-1564501049412-61c2a3083791?q=80&w=800">
+    <h3>Marriott</h3>
+    <p>Global premium hotel chain</p>
+</div>
+
+
+
+
+        <p id="noResults" style="display:none; text-align:center; margin-top:20px;">
+            No destinations found 😔
+        </p>
+
+    </section>
+
+    <!-- ITINERARY -->
+    <section class="itinerary">
+        <h2>Your Trip</h2>
+        <ul id="tripList"></ul>
+    </section>
+
+</main>
+
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img id="modalImg">
+        <h2 id="modalTitle"></h2>
+        <p id="modalDesc"></p>
+    </div>
+</div>
+
+<script src="script.js"></script>
+
+
+<section class="tips">
+    <h2>Travel Tips ✈️</h2>
+    <ul>
+        <li>Carry valid ID and documents</li>
+        <li>Check weather before travel</li>
+        <li>Book hotels in advance</li>
+        <li>Keep emergency contacts handy</li>
+    </ul>
+</section>
+
+
+
+</body>
+</html>

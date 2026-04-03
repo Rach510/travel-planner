@@ -98,6 +98,9 @@ main {
     color: white;
     border-radius: 20px;
     padding: 6px 14px;
+
+    font-size: 14px;
+
 }
 
 .filters button:hover {
@@ -122,6 +125,7 @@ main {
     border-radius: 15px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding-bottom: 10px;
 }
 
 .card:hover {
@@ -142,6 +146,7 @@ main {
     font-weight: bold;
 }
 
+
 .card p {
     padding: 0 15px;
     font-size: 14px;
@@ -154,14 +159,21 @@ main {
     margin-top: 5px;
 }
 
-.tags span {
-    background: #ecf0f1;
-    padding: 4px 8px;
-    border-radius: 10px;
-    font-size: 12px;
-    margin-right: 5px;
+.tags {
+    padding: 0 15px;
+    margin-top: 8px;
+    display: flex;
+    flex-wrap: wrap;     /* allows proper wrapping */
+    gap: 6px;            /* spacing between tags */
 }
 
+.tags span {
+    background: #ecf0f1;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    display: inline-block;
+}
 /* BUTTON */
 .card button {
     margin: 10px 15px 15px;
@@ -309,13 +321,21 @@ body.dark .dropdown-menu li a {
 }
 
 .filters {
-    position: sticky;
-    top: 70px;
-    z-index: 100;
-    background: inherit;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;              /* more spacing */
+    align-items: center;
 }
 
+/* make buttons consistent */
+.filters button {
+    background: #3498db;
+    color: white;
+    border-radius: 20px;
+    padding: 8px 16px;
+    white-space: nowrap;    /* prevents text breaking */
+}
 @media (max-width: 768px) {
     main {
         padding: 20px;
@@ -345,4 +365,13 @@ body.dark .dropdown-menu li a {
 
 body.dark .tips {
     background: #2c2c2c;
+}
+
+
+#userMessage {
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #00ff00;
+    letter-spacing: 1px;
 }
